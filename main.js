@@ -7,6 +7,7 @@ function display_stats(){
 	median(array);
 	mode(array);
 	standard_dev(array);
+	
 	return false;
 
 }
@@ -97,15 +98,24 @@ function standard_dev(array){
     }
     var pop_sd = Math.sqrt(total/res_arr.length);
     var sample_sd = Math.sqrt(total/(res_arr.length-1));
-    console.log(sample_sd);
+    //console.log(sample_sd);
     var result1 = document.getElementById("pop_sd");
 	result1.innerHTML = "The population standard deviation is:" + pop_sd;
 	var result2 = document.getElementById("samp_sd");
 	result2.innerHTML = "The sample standard deviation is:" + sample_sd;
 	return pop_sd,sample_sd;
 	
-
-    
-
+}
+function calculate_zscore()
+{
+	
+	var num = document.getElementById("z-score").value;
+	var mean = document.getElementById("avg").innerHTML.split(':')[1];
+	var sd = document.getElementById("pop_sd").innerHTML.split(':')[1]
+	var zscore = (num-mean)/sd;
+	console.log(zscore);
+	var p2 = document.getElementById("zscore");
+	p2.innerHTML = "The z-score is:" + zscore;
+	return false;
 	
 }
